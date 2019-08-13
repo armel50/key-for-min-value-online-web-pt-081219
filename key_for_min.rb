@@ -7,7 +7,8 @@ def key_for_min_value(name_hash)
  else
   
    array_of_value = name_hash.collect{|key,val| val}
-    smallest_value = 0
+    smallest_value = array_of_value.first
+    array_of_value.each {|el| smallest_value = el if el < smallest_value}
 
    name_hash.collect {|key,val| return key if val == smallest_value }
  end
